@@ -26,7 +26,8 @@
                 <h1>ClubBAIST</h1>
             </div>
 
-
+            @if (Session["MemberNumber"] != null)
+            {
             <nav id="nav">
                 <ul>
                     <li class="active"><a href="/BookTeeTimeReservation/Index">BookTeeTimeReservation</a></li>
@@ -37,10 +38,10 @@
                     <li class="active"><a href="ViewAccount.aspx">ViewAccount</a></li>
                     <li class="active"><a href="CancelTeeTimeReservation.aspx">CancelTeeTimeReservation</a></li>
                     <li class="active"><a href="/CancelStandingTeeTimeReservation/Index">CancelStandingTeeTimeReservation</a></li>
-                    <li class="active"><a href="RecordPlayerScore.aspx">RecordPlayer Score</a></li>
+                    <li class="active"><a href="/RecordPlayerScore/Index">RecordPlayer Score</a></li>
 
                 </ul>
-            </nav>
+            </nav>}
 
         </div>
     </div>      

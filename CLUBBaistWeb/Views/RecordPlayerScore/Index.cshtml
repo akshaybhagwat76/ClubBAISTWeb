@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="6u skel-cell-important">
+        <section id="content">
+            <header>
+                <h2>Record Player Score</h2>
+            </header>
+        </section>
+    </div>
+
+</div>
+<br />
+<br />
+<input type="button" onclick="location.href='@Url.Action("Logout","LogIn")'" name="ctl00$ContentPlaceHolder1$SignOut" value="Sign Out" id="ContentPlaceHolder1_SignOut" />
+<br />
+<br />
+    Tee:  @Html.DropDownList("ContentPlaceHolder1_TeeList",ViewData["Tee"] as List<SelectListItem>)
+    Course Rating:
+<input name="ctl00$ContentPlaceHolder1$Rating" type="number"  id="ContentPlaceHolder1_Rating" />
+    Slope:
+<input name="ctl00$ContentPlaceHolder1$Slope" type="number"  id="ContentPlaceHolder1_Slope" />
+<table id="ContentPlaceHolder1_Table1">
+    <tr>
+        <td>Hole:</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>Total</td>
+    </tr>
+    <tr>
+        <td>Shots:</td>
+        <td><input name="ctl00$ContentPlaceHolder1$S1" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S1" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S2" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S2" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S3" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S3" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S4" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S4" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S5" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S5" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S6" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S6" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S7" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S7" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S8" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S8" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S9" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S9" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$Front9Total" type="text" value="0" readonly="readonly" id="ContentPlaceHolder1_Front9Total" style="width:33px;" /></td>
+    </tr>
+</table>
+
+<table id="ContentPlaceHolder1_Table2">
+    <tr>
+        <td>Hole:</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+        <td>13</td>
+        <td>14</td>
+        <td>15</td>
+        <td>16</td>
+        <td>17</td>
+        <td>18</td>
+        <td>Total</td>
+    </tr>
+    <tr>
+        <td>Shots:</td>
+        <td><input name="ctl00$ContentPlaceHolder1$S10" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S10" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S11" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S11" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S12" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S12" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S13" type="number" value="3" readonly="readonly" id="ContentPlaceHolder1_S13" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S14" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S14" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S15" type="number" value="3" readonly="readonly" id="ContentPlaceHolder1_S15" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S16" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S16" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S17" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S17" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$S18" type="number" value="0" readonly="readonly" id="ContentPlaceHolder1_S18" style="width:33px;" /></td>
+        <td><input name="ctl00$ContentPlaceHolder1$Back9Total" type="text" readonly="readonly" id="ContentPlaceHolder1_Back9Total" style="width:33px;" /></td>
+    </tr>
+</table>
+<input type="button" name="ctl00$ContentPlaceHolder1$CalculateTotal" value="Calculate Total Scores" id="ContentPlaceHolder1_CalculateTotal"  />
+
+<input type="button" disabled="disabled" name="ctl00$ContentPlaceHolder1$Edit" value="Edit Scores" id="ContentPlaceHolder1_Edit" />
+<br />
+<br />
+<input type="button" disabled="disabled" name="ctl00$ContentPlaceHolder1$Record" value="Record Score" id="ContentPlaceHolder1_Record" />
+<br />
+<span id="ContentPlaceHolder1_Message"></span>
+
+<br />
+<span id="ContentPlaceHolder1_HandicapFactorLabel">Handicap Factor: </span>
+<br />
+<br />
+<input type="button" name="ctl00$ContentPlaceHolder1$HandicapFactor" value="Calculate Handicap Factor" id="ContentPlaceHolder1_HandicapFactor" />
+
+<script src="~/Scripts/Custom/RecordPlayerScore.js"></script>

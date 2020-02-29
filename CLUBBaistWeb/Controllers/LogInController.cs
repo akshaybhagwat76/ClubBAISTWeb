@@ -17,7 +17,7 @@ namespace CLUBBaistWeb.Controllers
         {
             return View();
         }
-        public string CheckLogin(string MemberNumber,string Password)
+        public string CheckLogin(string MemberNumber, string Password)
         {
             int membernumber = 0;
             if (MemberNumber == "madhuri1234" || Password == "Madhuri2018" || !int.TryParse(MemberNumber, out membernumber))
@@ -110,23 +110,30 @@ namespace CLUBBaistWeb.Controllers
                         Session["Sex"] = sex.Value;
                         Session["MembershipLevel"] = level.Value.ToString();
                         ClubBAIST.Close();
-                        
+
                         return "Login Successfully";
                     }
                     else
                     {
                         ClubBAIST.Close();
-                       return  "Incorrect Password";
+                        return "Incorrect Password";
                     }
                 }
                 catch (Exception ex)
                 {
 
-                   return "Member Is Not Exist";
+                    return "Member Is Not Exist";
                 }
 
 
             }
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session["MemberNumber"] = null;
+            return RedirectToAction("Index");
         }
     }
 }
