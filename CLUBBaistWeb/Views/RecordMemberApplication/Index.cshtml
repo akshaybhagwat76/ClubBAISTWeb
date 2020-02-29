@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+    <div class="6u skel-cell-important">
+        <section id="content">
+            <header>
+                <h2>Record  Member  Application</h2>
+            </header>
+
+            <form id="frmRecordMemeberApplication" name="frmRecordMemeberApplication">
+                <table id="ContentPlaceHolder1_ApplicationTable">
+                    <tr>
+                        <td><input type="submit" name="ctl00$ContentPlaceHolder1$SignOut" value="Sign Out" id="ContentPlaceHolder1_SignOut" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>LastName:</td>
+                        <td><input name="LastName" type="text" class="required" id="ContentPlaceHolder1_LastName" /></td>
+                        <td>Occupation:</td>
+                        <td><input name="Occupation" type="text" class="required"  id="ContentPlaceHolder1_Occupation" /></td>
+                    </tr>
+                    <tr>
+                        <td>FirstName:</td>
+                        <td><input name="FirstName" type="text" class="required"  id="ContentPlaceHolder1_FirstName" /></td>
+                        <td>Company Name:</td>
+                        <td><input name="CompanyName" type="text" class="required"  id="ContentPlaceHolder1_CompanyName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td><input name="Address" type="text" class="required"  id="ContentPlaceHolder1_Address" /></td>
+                        <td>Company Address:</td>
+                        <td><input name="CompanyName" type="text" class="required"  id="ContentPlaceHolder1_CompanyAddress" /></td>
+                    </tr>
+                    <tr>
+                        <td>PostalCode:</td>
+                        <td><input name="PostalCode" type="text" class="required"  id="ContentPlaceHolder1_PostalCode" /></td>
+                        <td>Company PostalCode:</td>
+                        <td><input name="CompanyPostalCode" type="text" class="required"  id="ContentPlaceHolder1_CompanyPostalCode" /></td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td><input name="Phone" type="text" id="ContentPlaceHolder1_Phone" class="required"  /></td>
+                        <td>Company Phone:</td>
+                        <td><input name="CompanyPhone" type="text" class="required"  id="ContentPlaceHolder1_CompanyPhone" /></td>
+                    </tr>
+                    <tr>
+                        <td>Alternate Phone:</td>
+                        <td><input name="AltPhone" type="text" class="required"  id="ContentPlaceHolder1_AltPhone" /></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input name="Email" type="email" class="required"  id="email" /></td>
+                        <td>Passowrd:</td>
+                        <td><input name="Password" type="text" class="required"  id="ContentPlaceHolder1_Password" /></td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth:</td>
+                        <td><input name="BirthDate" type="date" class="required"  value="mm/dd/yyyy" id="ContentPlaceHolder1_DateofBirth" /></td>
+                    </tr>
+                    <tr>
+                        <td>Sex:</td>
+                        <td>
+                            <select name="Sex" id="ContentPlaceHolder1_Sexlist" class="required" >
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Buy Share:</td>
+                        <td><input id="WantsShare" type="checkbox" name="WantsShare" /></td>
+                    </tr>
+                    <tr>
+                        <td>Application Date: </td>
+                        <td><input name="SubmitDate" type="date" class="required"  value="mm/dd/yyyy" id="ContentPlaceHolder1_SubmitDate" /></td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                <table id="ContentPlaceHolder1_Shareholdertable">
+                    <tr>
+                        <td>
+                            ShareHolders Name:
+                        </td>
+                        <td><input name="ShareholderName1" type="text" class="required"  id="ContentPlaceHolder1_ShareholderName1" /></td>
+                        <td>
+                            ShareHolders Name:
+                        </td>
+                        <td><input name="ShareholderName2" type="text" class="required"  id="ContentPlaceHolder1_ShareholderName2" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Date:
+                        </td>
+                        <td><input name="ShareholderDate1" type="date" class="required"  value="mm/dd/yyyy" id="ContentPlaceHolder1_ShareholderDate1" /></td>
+                        <td>
+                            Date:
+                        </td>
+                        <td><input name="ShareholderDate2" type="date" class="required"  value="mm/dd/yyyy" id="ContentPlaceHolder1_ShareholderDate2" /></td>
+                    </tr>
+                </table>
+            </form>
+            <br />
+            <input type="button" name="ctl00$ContentPlaceHolder1$Submit" value="Submit" id="btn-submit" />
+            <div><label id="lblError"></label></div>
+        </section>
+    </div>
+
+</div>
+
+<script src="~/Scripts/Custom/RecordMemberApplication.js"></script>

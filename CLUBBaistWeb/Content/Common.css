@@ -1,0 +1,25 @@
+﻿label#lblError {
+    text-align: center;
+    padding-top: 5px;
+}
+
+input.error, select.error {
+    border: 1px dotted #cc5965;
+}
+
+label.success {
+    color: #5cb85c;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+label.error {
+    color: red;
+}
+
+
+.requiredLabel:after {
+    content: " *";
+    font-weight: bold;
+    color: red;
+}

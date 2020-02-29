@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+    <link href="~/Content/Common.css" rel="stylesheet" />
 </head>
 <body>
    
@@ -32,7 +33,7 @@
                     <li class="active"><a href="BookStandingTeeTimeReservation.aspx">BookStandingTeeTimeReservation</a></li>
                     <li class="active"><a href="GenerateDailyReservationSheet.aspx">GenerateDailyReservationSheet</a></li>
                     <li class="active"><a href="ReviewMemberApplication.aspx">ReviewMemberApplication</a></li>
-                    <li class="active"><a href="RecordMemberApplication.aspx">RecordMemberApplication</a></li>
+                    <li class="active"><a href="/RecordMemberApplication/Index">RecordMemberApplication</a></li>
                     <li class="active"><a href="ViewAccount.aspx">ViewAccount</a></li>
                     <li class="active"><a href="CancelTeeTimeReservation.aspx">CancelTeeTimeReservation</a></li>
                     <li class="active"><a href="CancelStandingTeeTimeReservation.aspx">CancelStandingTeeTimeReservation</a></li>
@@ -48,6 +49,7 @@
                 </div>
                 @Scripts.Render("~/bundles/jquery")
                 @Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/Custom/Common.js"></script>
                 @RenderSection("scripts", required: false)
     </body>
    
