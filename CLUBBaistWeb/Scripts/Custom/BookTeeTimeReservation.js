@@ -3,7 +3,7 @@
 
     var ReservationList = $("#PhoneNumber").val();
   
-    $.get("/BookTeeTimeReservation/ReserverTime", { ReservationList: ReservationList }, function (resulut) {
-        console.log(resulut);
+    $.get("/BookTeeTimeReservation/ReserverTime", { ReservationList: ReservationList }, function (result) {
+        console.log(result);
     });
 });

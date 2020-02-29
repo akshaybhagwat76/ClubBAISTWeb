@@ -104,40 +104,23 @@ namespace CLUBBaistWeb.Controllers
             bool status = false;
             try
             {
-                var response = JsonConvert.SerializeObject(totalAndTee);
+                var response = JsonConvert.DeserializeObject<RecordPlayerScoreResponse>(totalAndTee);
                 
                 boxes = new List<string>() { "S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "S11", "S12", "S13", "S14", "S15", "S16", "S17", "S18" };
-                //Score NewScore = new Score(TeeList.SelectedValue, total);
+                Score NewScore = new Score(response.teeValue, response.total);
                 for (int i = 0; i < boxes.Count; i++)
                 {
-                    //NewScore.scores.Add(int.Parse(item.Text));
+                    NewScore.scores.Add(int.Parse(boxes[i].Last().ToString()));
                 }
-                //foreach (TextBox item in boxes)
-                //{
-                //    try
-                //    {
-                //        NewScore.scores.Add(int.Parse(item.Text));
-                //    }
-                //    catch (Exception)
-                //    {
-                //        Message.Text = "Your scores are not correct";
-                //    }
-                //}
-
-                //if (NewScore.scores.Count == 18)
-                //    NewScore.HandicapDifferential = Math.Round(((NewScore.Total - float.Parse(Rating.Text)) * 113) / float.Parse(Slope.Text), 1);
+                if (NewScore.scores.Count == 18)
+                    NewScore.HandicapDifferential = Math.Round(((NewScore.Total - float.Parse(response.rating)) * 113) / float.Parse(response.slope), 1);
 
 
-                //ClubBAISTRequestDirector CBRD = new ClubBAISTRequestDirector();
-                //if (CBRD.RecordScore((int)Session["MemberNumber"], NewScore))
-                //    Message.Text = "Score was recorded successfully";
-                //else
-                //    Message.Text = "There seems to be an error in your score.";
-                //int memberNumber = Convert.ToInt32(Session["MemberNumber"].ToString());
-                //var response = new ScoresRepository().GetCurrentHandicap(memberNumber);
-                //status = response >= 0 ? true : false;
-                //message = response.ToString();
-
+                ClubBAISTRequestDirector CBRD = new ClubBAISTRequestDirector();
+                if (CBRD.RecordScore((int)Session["MemberNumber"], NewScore))
+                    message = "Score was recorded successfully";
+                else
+                    message = "There seems to be an error in your score.";
             }
             catch (Exception ex)
             {
@@ -148,4 +131,12 @@ namespace CLUBBaistWeb.Controllers
 
         }
     }
+}
+
+public class RecordPlayerScoreResponse
+{
+    public int total { get; set; }
+    public string teeValue { get; set; }
+    public string slope { get; set; }
+    public string rating { get; set; }
 }

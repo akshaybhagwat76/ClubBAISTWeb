@@ -39,6 +39,9 @@ $("#ContentPlaceHolder1_Record").click(function () {
     var obj = { total: total, teeValue: teeValue,slope:slope,rating:rating };
     $.get('/RecordPlayerScore/RecordTee', { totalAndTee:JSON.stringify(obj) }, function (response) {
         console.log(response);
+        $("#ContentPlaceHolder1_Message").text("");
+        $("#ContentPlaceHolder1_Message").text(response.message);
+
         //if (response.status) {
         //    $("#ContentPlaceHolder1_HandicapFactorLabel").text("");
         //    $("#ContentPlaceHolder1_HandicapFactorLabel").text("Handicap Factor: " + response.message);
