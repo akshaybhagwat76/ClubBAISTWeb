@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="height: 672px; width: 1224px">
+    <br />
+    <div id="page">
+        <div class="container">
+            <div class="row">
+                <div class="6u skel-cell-important">
+                    <section id="content">
+                        <header>
+                            <h2 style="height: 73px; width: 604px">BookTeeTimeReservation</h2>
+                        </header>
+                    </section>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <table style="height:398px;width:799px;">
+        <tr>
+            <td><input type="submit" name="SingOut" value="Sign Out" id="btnSingOut" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            Date:
+                        </td>
+                        <td>
+                            <input name="Date" type="date" id="txtDate" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Time:
+                        </td>
+                        <td>
+                            Hour: <select name="Hour" id="drpHour">
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+
+                            </select>
+                            Minute:<select name="Minute" id="drpMinute">
+                                <option value="00">00</option>
+                                <option value="07">07</option>
+                                <option value="15">15</option>
+                                <option value="22">22</option>
+                                <option value="30">30</option>
+                                <option value="37">37</option>
+                                <option value="45">45</option>
+                                <option value="52">52</option>
+
+                            </select>
+                            AMorPM <select name="drpAMorPM" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$AMorPM\&#39;,\&#39;\&#39;)&#39;, 0)" id="ContentPlaceHolder1_AMorPM">
+                                <option selected="selected" value="AM">AM</option>
+                                <option value="PM">PM</option>
+
+                            </select><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Number of Players:
+                        </td>
+                        <td>
+                            <table id="NumberOfPlayers">
+                                <tr>
+                                    <td><input id="NumberOfPlayers_0" type="radio" name="NumberOfPlayers" value="1" checked="checked" /><label for="ContentPlaceHolder1_NumberOfPlayers_0">1</label></td>
+                                    <td><input id="NumberOfPlayers_1" type="radio" name="NumberOfPlayers" value="2" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$NumberOfPlayers$1\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="NumberOfPlayers_1">2</label></td>
+                                    <td><input id="NumberOfPlayers_2" type="radio" name="NumberOfPlayers" value="3" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$NumberOfPlayers$2\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="NumberOfPlayers_2">3</label></td>
+                                    <td><input id="NumberOfPlayers_3" type="radio" name="NumberOfPlayers" value="4" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$NumberOfPlayers$3\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="NumberOfPlayers_3">4</label></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            MemberName2:
+                        </td>
+                        <td>
+                            <input name="MemberName2" type="text" id="MemberName2" disabled="disabled" class="aspNetDisabled" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            MemberName3:
+                        </td>
+                        <td>
+                            <input name="MemberName3" type="text" id="MemberName3" disabled="disabled" class="aspNetDisabled" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            MemberName4:
+                        </td>
+                        <td>
+                            <input name="MemberName4" type="text" id="MemberName4" disabled="disabled" class="aspNetDisabled" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Number Of Carts:
+                        </td>
+                        <td>
+                            <input name="NumberOfCarts" type="number" id="NumberOfCarts" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            PhoneNumber:
+                        </td>
+                        <td>
+                            <input name="PhoneNumber" type="text" id="PhoneNumber" /><br />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <input name="ViewTeeTimeBox" type="date" id="ViewTeeTimeBox" />
+                <input type="submit" name="DisplayTeeTime" value="Display Tee Times" id="DisplayTeeTime" />
+                <div style="height:350px; width:auto; overflow:auto;">
+                    <table id="TeeTimesTable" rules="all" border="1">
+                        <tr>
+                            <th>Time</th>
+                            <th>MemberName</th>
+                            <th>MemberName</th>
+                            <th>MemberName</th>
+                            <th>MemberName</th>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" name="BookTeeTime" value="Book Tee Time" id="btnBookTeeTime" /><br /><br />
+    <span id="Message" style="color:Red;"></span><br /><br />
+</div>
+<script src="~/Scripts/Custom/BookTeeTimeReservation.js"></script>

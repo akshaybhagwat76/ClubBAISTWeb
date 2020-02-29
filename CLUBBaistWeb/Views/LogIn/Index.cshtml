@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="6u skel-cell-important">
+            <section id="content">
+                <header>
+                    <h2>Logon</h2>
+                </header>
+            </section>
+        </div>
+
+    </div>
+
+</div>
+
+<div style="margin-top:5%;margin-left:30%">
+    <table id="tblLogin">
+        <tr>
+            <td>
+                Member Number:
+            </td>
+            <td><input name="MemberName" type="text" id="txtMemberName" /></td>
+        </tr>
+        <tr>
+            <td>
+                Password:
+            </td>
+            <td><input name="Password" type="text" id="txtPassword" /></td>
+        </tr>
+    </table>
+    <input type="submit" name="Login" value="Login" id="btnLogin" /><br />
+    <span id="Message"></span>
+</div>
+<script src="~/Scripts/Custom/Login.js"></script>
