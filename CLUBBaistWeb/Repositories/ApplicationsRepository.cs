@@ -149,7 +149,7 @@ namespace CLUBBaistWeb.Repositories
             {
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 success = false;
             }

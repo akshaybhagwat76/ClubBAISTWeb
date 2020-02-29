@@ -22,5 +22,13 @@ $("#btn-submit").click(function () {
             $("#email").removeClass('error');
         }
         console.log(_$RecordMemeberApplicationForm);
+        $.post('/RecordMemberApplication/AddApplication', { application: _$RecordMemeberApplicationForm }, function (response) {
+            if (!response.status) {
+                $("#lblError").addClass("error").text(response.message).show();
+            }
+            else {
+                location.href = "/Home/Index";
+            }
+        });
     }
 });
