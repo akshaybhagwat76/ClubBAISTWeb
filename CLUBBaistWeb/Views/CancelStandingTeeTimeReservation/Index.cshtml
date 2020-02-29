@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+    <div class="row">
+        <div class="6u skel-cell-important">
+            <section id="content">
+                <header>
+                    <h2>Cancel Standing Tee Time Reservation</h2>
+                </header>
+            </section>
+        </div>
+        <input type="button" name="ctl00$ContentPlaceHolder1$SignOut" value="Sign Out" id="ContentPlaceHolder1_SignOut" />
+        <br />
+        <br />
+        @*<input type="button" name="ctl00$ContentPlaceHolder1$Cancel" value="Cancel Standing Reservation" id="btn-cancel" />*@
+        <input type="submit" name="ctl00$ContentPlaceHolder1$Cancel"  onclick="location.href='@Url.Action("Cancel","CancelStandingTeeTimeReservation")'" value="Cancel Standing Reservation" id="ContentPlaceHolder1_Cancel" />
+        <br />
+        <br />
+    </div>
+<script>
+
+</script>
