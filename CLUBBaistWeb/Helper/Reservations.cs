@@ -158,7 +158,7 @@ public class Reservations
         return TeeTimes;
     }
 
-    public void GetMemberReservations(int membernumber, ListBox Reservations)
+    public List<KeyValuePair<string,string>> GetMemberReservations(int membernumber)
     {
         SqlConnection MadhuriKathiriaClubBAIST = new SqlConnection();
         MadhuriKathiriaClubBAIST.ConnectionString = ConfigurationManager.ConnectionStrings["MadhuriKathiriaClubBAIST"].ConnectionString;
@@ -176,21 +176,23 @@ public class Reservations
         command.Parameters.Add(parameter);
 
         SqlDataReader reader = command.ExecuteReader();
+        var list = new List<KeyValuePair<string, string>>();
+
         while (reader.Read())
         {
             string ReservedText = reader[0].ToString();
             string ReservedValue = reader[0].ToString() + reader[1].ToString();
-            ReservedValue = ReservedValue.Remove(9);
-            ReservedValue = ReservedValue + reader[1].ToString();
+            ReservedValue = ReservedValue.Remove(10);
+            ReservedValue = ReservedValue + " "+reader[1].ToString();
             ReservedText = ReservedText.Remove(9);
             ReservedText = ReservedText + " ";
             ReservedText = ReservedText + reader[1].ToString();
 
-            ListItem item = new ListItem(ReservedText.Insert(11, " at "), ReservedValue);
-            Reservations.Items.Add(item);
+            list.Add(new KeyValuePair<string, string>(ReservedText.Insert(11, " at "), ReservedValue));
         }
         reader.Close();
         MadhuriKathiriaClubBAIST.Close();
+        return list;
     }
 
 
@@ -220,31 +222,31 @@ public class Reservations
 
         parameter = new SqlParameter();
         parameter.SqlDbType = SqlDbType.NVarChar;
-        parameter.Value = NewTeeTime.MemberName1;
+        parameter.Value = ValueOrNull(NewTeeTime.MemberName1);
         parameter.ParameterName = "@MemberName1";
         AddCommand.Parameters.Add(parameter);
 
         parameter = new SqlParameter();
         parameter.SqlDbType = SqlDbType.NVarChar;
-        parameter.Value = NewTeeTime.MemberName2;
+        parameter.Value = ValueOrNull(NewTeeTime.MemberName2);
         parameter.ParameterName = "@MemberName2";
         AddCommand.Parameters.Add(parameter);
 
         parameter = new SqlParameter();
         parameter.SqlDbType = SqlDbType.NVarChar;
-        parameter.Value = NewTeeTime.MemberName3;
+        parameter.Value = ValueOrNull(NewTeeTime.MemberName3);
         parameter.ParameterName = "@MemberName3";
         AddCommand.Parameters.Add(parameter);
 
         parameter = new SqlParameter();
         parameter.SqlDbType = SqlDbType.NVarChar;
-        parameter.Value = NewTeeTime.MemberName4;
+        parameter.Value = ValueOrNull(NewTeeTime.MemberName4);
         parameter.ParameterName = "@MemberName4";
         AddCommand.Parameters.Add(parameter);
 
         parameter = new SqlParameter();
         parameter.SqlDbType = SqlDbType.Int;
-        parameter.Value = NewTeeTime.MemberNumber;
+        parameter.Value = ValueOrNull(NewTeeTime.MemberNumber);
         parameter.ParameterName = "@MemberNumber";
         AddCommand.Parameters.Add(parameter);
 
@@ -279,6 +281,8 @@ public class Reservations
         catch (Exception ex)
         {
             Success = false;
+            MadhuriKathiriaClubBAIST.Close();
+            throw ex;
         }
         MadhuriKathiriaClubBAIST.Close();
         return Success;
@@ -455,14 +459,17 @@ public class Reservations
             command.ExecuteNonQuery();
             MadhuriKathiriaClubBAIST.Close();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             MadhuriKathiriaClubBAIST.Close();
             success = false;
-
         }
 
         return success;
+    }
+    protected object ValueOrNull(object value)
+    {
+        return value ?? DBNull.Value;
     }
 }
 

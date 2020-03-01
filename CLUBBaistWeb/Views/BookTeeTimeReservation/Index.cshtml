@@ -75,12 +75,12 @@
                                 Number of Players:
                             </td>
                             <td>
-                                <table id="NumberOfPlayers" class="required">
+                                <table id="NumberOfPlayers">
                                     <tr>
                                         <td><input id="NumberOfPlayers_0" type="radio" name="NumberOfPlayers" value="1" checked="checked" /><label for="ContentPlaceHolder1_NumberOfPlayers_0">1</label></td>
-                                        <td><input id="NumberOfPlayers_1" type="radio" name="NumberOfPlayers" value="2" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$NumberOfPlayers$1\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="NumberOfPlayers_1">2</label></td>
-                                        <td><input id="NumberOfPlayers_2" type="radio" name="NumberOfPlayers" value="3" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$NumberOfPlayers$2\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="NumberOfPlayers_2">3</label></td>
-                                        <td><input id="NumberOfPlayers_3" type="radio" name="NumberOfPlayers" value="4" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$NumberOfPlayers$3\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="NumberOfPlayers_3">4</label></td>
+                                        <td><input id="NumberOfPlayers_1" type="radio" name="NumberOfPlayers" value="2" /><label for="NumberOfPlayers_1">2</label></td>
+                                        <td><input id="NumberOfPlayers_2" type="radio" name="NumberOfPlayers" value="3" /><label for="NumberOfPlayers_2">3</label></td>
+                                        <td><input id="NumberOfPlayers_3" type="radio" name="NumberOfPlayers" value="4" /><label for="NumberOfPlayers_3">4</label></td>
                                     </tr>
                                 </table>
                             </td>
@@ -90,7 +90,7 @@
                                 MemberName2:
                             </td>
                             <td>
-                                <input name="MemberName2" type="text" id="MemberName2" disabled="disabled" class="aspNetDisabled required" /><br />
+                                <input name="MemberName2" type="text" id="MemberName2" disabled="disabled" class="required" /><br />
                             </td>
                         </tr>
                         <tr>
@@ -98,7 +98,7 @@
                                 MemberName3:
                             </td>
                             <td>
-                                <input name="MemberName3" type="text" id="MemberName3" disabled="disabled" class="aspNetDisabled required" /><br />
+                                <input name="MemberName3" type="text" id="MemberName3" disabled="disabled" class="required" /><br />
                             </td>
                         </tr>
                         <tr>
@@ -106,7 +106,7 @@
                                 MemberName4:
                             </td>
                             <td>
-                                <input name="MemberName4" type="text" id="MemberName4" disabled="disabled" class="aspNetDisabled required" /><br />
+                                <input name="MemberName4" type="text" id="MemberName4" disabled="disabled" class="required" /><br />
                             </td>
                         </tr>
                         <tr>
@@ -128,17 +128,19 @@
                     </table>
                 </td>
                 <td>
-                    <input name="ViewTeeTimeBox" type="date" id="ViewTeeTimeBox" class="required" />
-                    <input type="submit" name="DisplayTeeTime" value="Display Tee Times" id="DisplayTeeTime" />
+                    <input name="ViewTeeTimeBox" type="date" id="ViewTeeTimeBox" />
+                    <input type="button" name="DisplayTeeTime" value="Display Tee Times" id="DisplayTeeTime" />
                     <div style="height:350px; width:auto; overflow:auto;">
-                        <table id="TeeTimesTable" rules="all" border="1">
-                            <tr>
-                                <th>Time</th>
-                                <th>MemberName</th>
-                                <th>MemberName</th>
-                                <th>MemberName</th>
-                                <th>MemberName</th>
-                            </tr>
+                        <table class="table table-bordered table-condensed table-hover table-striped" id="TeeTimesTable">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>MemberName1</th>
+                                    <th>MemberName2</th>
+                                    <th>MemberName3</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyDisplayTee"></tbody>
                         </table>
                     </div>
                 </td>

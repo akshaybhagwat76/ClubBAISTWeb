@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div class="6u skel-cell-important">
+    <section id="content">
+        <header>
+            <h2>Cancel Tee Time Reservation</h2>
+        </header>
+    </section>
+</div>
+<form>
+    <br />
+    <input type="button" name="ctl00$ContentPlaceHolder1$SignOut" value="Sign Out" id="ContentPlaceHolder1_SignOut" />
+
+    <span id="ContentPlaceHolder1_Message" style="color:Red;"></span>
+    <br />
+    <br />
+
+    Your Current TeeTime Reservations
+    <br />
+    @Html.DropDownList("DDLTest", (List<SelectListItem>)ViewBag.ddlitemlist, new { size = "4" })
+    <br />
+    <input type="button" name="ctl00$ContentPlaceHolder1$CancelReservation" value="Cancel Reservation" id="ContentPlaceHolder1_CancelReservation" />
+    <br />
+</form>
+<script>
+    $("#ContentPlaceHolder1_CancelReservation").click(function () {
+        if ($("#DDLTest").val() != "") {
+            $.get('/CancelTeeTimeReservation/CancelTee', { cancellDate: $("#DDLTest").val() }, function (data) {
+                $("#ContentPlaceHolder1_Message").text("");
+                $("#ContentPlaceHolder1_Message").text(data.message);
+
+            });
+        }
+    });
+
+   
+</script>

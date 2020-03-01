@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CLUBBaistWeb.Helper;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -45,7 +46,6 @@ namespace CLUBBaistWeb.Repositories
 
             return success;
         }
-
         public bool AddDailyReservationSheet(DateTime Day)
         {
             bool Success = true;
@@ -157,7 +157,6 @@ namespace CLUBBaistWeb.Repositories
             MadhuriKathiriaClubBAIST.Close();
             return Success;
         }
-
         public List<TeeTime> GetTeeTimes(DateTime Date)
         {
             List<TeeTime> TeeTimes = new List<TeeTime>();
@@ -350,7 +349,7 @@ namespace CLUBBaistWeb.Repositories
             {
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 success = false;
             }
@@ -358,9 +357,7 @@ namespace CLUBBaistWeb.Repositories
             return success;
         }
 
-        public bool AddStandingReservation(DateTime StartDate, DateTime EndDate, DateTime RequestedTime, string DayOfWeek,
-                int MemberNumber1, int MemberNumber2, int MemberNumber3, int MemberNumber4, string MemberName1, string MemberName2,
-                string MemberName3, string MemberName4)
+        public bool AddStandingReservation(BookStandingTeeTimeReservationVM obj)
         {
             bool success = true;
 
@@ -375,74 +372,65 @@ namespace CLUBBaistWeb.Repositories
 
             SqlParameter parameter = new SqlParameter();
             parameter.SqlDbType = SqlDbType.Date;
-            parameter.Value = StartDate.Date;
+            parameter.Value = ValueOrNull(obj.StartDate.Date);
             parameter.ParameterName = "@StartDate";
             command.Parameters.Add(parameter);
 
             parameter = new SqlParameter();
             parameter.SqlDbType = SqlDbType.Date;
-            parameter.Value = EndDate.Date;
+            parameter.Value = ValueOrNull(obj.EndDate.Date);
             parameter.ParameterName = "@EndDate";
             command.Parameters.Add(parameter);
 
             parameter = new SqlParameter();
             parameter.SqlDbType = SqlDbType.Time;
-            parameter.Value = RequestedTime.TimeOfDay;
+            TimeSpan time = TimeSpan.Parse(obj.RequestedTime);
+
+            parameter.Value = time;
             parameter.ParameterName = "@RequestedTime";
             command.Parameters.Add(parameter);
 
             parameter = new SqlParameter();
             parameter.SqlDbType = SqlDbType.NVarChar;
-            parameter.Value = DayOfWeek;
+            parameter.Value = ValueOrNull( obj.DayOfWeek);
             parameter.ParameterName = "@DayOfWeek";
             command.Parameters.Add(parameter);
 
             parameter = new SqlParameter();
             parameter.SqlDbType = SqlDbType.Int;
-            parameter.Value = MemberNumber1;
+            parameter.Value = ValueOrNull( obj.MemberNumber1);
             parameter.ParameterName = "@MemberNumber1";
             command.Parameters.Add(parameter);
 
             parameter = new SqlParameter();
             parameter.SqlDbType = SqlDbType.Int;
-            parameter.Value = MemberNumber2;
+            parameter.Value = ValueOrNull(obj.MemberNumber2);
             parameter.ParameterName = "@MemberNumber2";
             command.Parameters.Add(parameter);
 
             parameter = new SqlParameter();
             parameter.SqlDbType = SqlDbType.Int;
-            parameter.Value = MemberNumber3;
+            parameter.Value = ValueOrNull(obj.MemberNumber3);
             parameter.ParameterName = "@MemberNumber3";
             command.Parameters.Add(parameter);
 
-            parameter = new SqlParameter();
-            parameter.SqlDbType = SqlDbType.Int;
-            parameter.Value = MemberNumber4;
-            parameter.ParameterName = "@MemberNumber4";
-            command.Parameters.Add(parameter);
 
             parameter = new SqlParameter();
             parameter.SqlDbType = SqlDbType.NVarChar;
-            parameter.Value = MemberName1;
+            parameter.Value = ValueOrNull(obj.MemberName1);
             parameter.ParameterName = "@MemberName1";
             command.Parameters.Add(parameter);
 
             parameter = new SqlParameter();
             parameter.SqlDbType = SqlDbType.NVarChar;
-            parameter.Value = MemberName2;
+            parameter.Value = ValueOrNull(obj.MemberName2);
             parameter.ParameterName = "@MemberName2";
             command.Parameters.Add(parameter);
 
             parameter = new SqlParameter();
             parameter.SqlDbType = SqlDbType.NVarChar;
-            parameter.Value = MemberName3;
+            parameter.Value = ValueOrNull(obj.MemberName3);
             parameter.ParameterName = "@MemberName3";
-            command.Parameters.Add(parameter);
-
-            parameter = new SqlParameter();
-            parameter.SqlDbType = SqlDbType.NVarChar;
-            parameter.Value = MemberName4;
-            parameter.ParameterName = "@MemberName4";
             command.Parameters.Add(parameter);
 
             try
@@ -450,13 +438,18 @@ namespace CLUBBaistWeb.Repositories
                 command.ExecuteNonQuery();
                 MadhuriKathiriaClubBAIST.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 success = false;
                 MadhuriKathiriaClubBAIST.Close();
             }
 
             return success;
+        }
+
+        protected object ValueOrNull(object value)
+        {
+            return value ?? DBNull.Value;
         }
     }
 }

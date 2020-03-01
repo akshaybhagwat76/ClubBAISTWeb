@@ -79,11 +79,11 @@ public class ClubBAISTRequestDirector
         return Confirmation;
     }
 
-    public void DisplayMemberReservations(int MemberNumber, ListBox MemberReservations)
-    {
-        Reservations ReservationManager = new Reservations();
-        ReservationManager.GetMemberReservations(MemberNumber, MemberReservations);
-    }
+    //public void DisplayMemberReservations(int MemberNumber, ListBox MemberReservations)
+    //{
+    //    Reservations ReservationManager = new Reservations();
+    //    ReservationManager.GetMemberReservations(MemberNumber, MemberReservations);
+    //}
 
     public bool CancelReservation(DateTime Date, DateTime Time, int MemberNumber)
     {

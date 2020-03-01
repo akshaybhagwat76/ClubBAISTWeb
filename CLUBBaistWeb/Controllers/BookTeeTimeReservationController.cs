@@ -1,4 +1,6 @@
 ﻿using CLUBBaistWeb.Helper;
+using CLUBBaistWeb.Repositories;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,20 @@ namespace CLUBBaistWeb.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public JsonResult DisplayTeeRecords(string date)
+        {
+            List<TeeTime> Times = new List<TeeTime>();
+            if (!string.IsNullOrEmpty(date))
+            {
+                Times = new Reservations().GetTeeTimes(DateTime.Parse(date));
+
+                return Json(JsonConvert.SerializeObject(Times), JsonRequestBehavior.AllowGet);
+            }
+            return Json(JsonConvert.SerializeObject(Times), JsonRequestBehavior.AllowGet);
+        }
+
 
         [HttpPost]
         public JsonResult SaveDataBookTeeTimeReservation(BookTeeTimeReservation objBoookstanding)
@@ -35,28 +51,28 @@ namespace CLUBBaistWeb.Controllers
             {
                 NewTeeTime = new TeeTime(DateT, DateT, Session["MemberName"].ToString(), objBoookstanding.MemberName2, objBoookstanding.MemberName3, objBoookstanding.MemberName4, Convert.ToInt32(Session["MemberNumber"]), objBoookstanding.NumberOfPlayers, objBoookstanding.PhoneNumber, Convert.ToInt32(objBoookstanding.NumberOfCarts), "N/A");
 
+
+
+
+                ClubBAISTRequestDirector CBRD = new ClubBAISTRequestDirector();
+
+
+                if (CBRD.ReserveTeeTime(NewTeeTime, Session["MembershipLevel"].ToString()))
+                {
+                    isStatus = true;
+                    message = "Reservation was successfuly made.";
+                }
+                else
+                {
+                    message = "Reservation could not be made.";
+                }
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                message = "Information was input incorrectly. Double check your fields";
+                return Json(new { Status = isStatus, message = ex.Message.ToString() }, JsonRequestBehavior.AllowGet);
 
             }
-
-
-            ClubBAISTRequestDirector CBRD = new ClubBAISTRequestDirector();
-
-
-            if (CBRD.ReserveTeeTime(NewTeeTime, Session["MembershipLevel"].ToString()))
-            {
-                isStatus = true;
-                message = "Reservation was successfuly made.";
-            }
-            else
-            {
-                message = "Reservation could not be made.";
-            }
-
-
             return Json(new { Status = isStatus, message = message }, JsonRequestBehavior.AllowGet);
 
         }

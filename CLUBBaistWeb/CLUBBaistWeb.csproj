@@ -129,6 +129,7 @@
     <Compile Include="Controllers\BookStandingTeeTimeReservationController.cs" />
     <Compile Include="Controllers\BookTeeTimeReservationController.cs" />
     <Compile Include="Controllers\CancelStandingTeeTimeReservationController.cs" />
+    <Compile Include="Controllers\CancelTeeTimeReservationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\RecordMemberApplicationController.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Helper\Application.cs" />
     <Compile Include="Helper\Applications..cs" />
     <Compile Include="Helper\BookStandingTeeTimeReservation.cs" />
+    <Compile Include="Helper\BookStandingTeeTimeReservationVM.cs" />
     <Compile Include="Helper\ClubBAISTRequestDirector.cs" />
     <Compile Include="Helper\Members.cs" />
     <Compile Include="Helper\Reservations.cs" />
@@ -198,6 +200,7 @@
     <Content Include="Views\CancelStandingTeeTimeReservation\Index.cshtml" />
     <Content Include="Views\RecordPlayerScore\Index.cshtml" />
     <Content Include="Views\BookStandingTeeTimeReservation\Index.cshtml" />
+    <Content Include="Views\CancelTeeTimeReservation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
