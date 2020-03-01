@@ -17,7 +17,7 @@
     <link href="~/Content/Common.css" rel="stylesheet" />
 </head>
 <body>
-   
+
     <div id="header">
         <div class="container">
 
@@ -28,30 +28,30 @@
 
             @if (Session["MemberNumber"] != null)
             {
-            <nav id="nav">
-                <ul>
-                    <li class="active"><a href="/BookTeeTimeReservation/Index">BookTeeTimeReservation</a></li>
-                    <li class="active"><a href="/BookStandingTeeTimeReservation/Index">BookStandingTeeTimeReservation</a></li>
-                    <li class="active"><a href="GenerateDailyReservationSheet.aspx">GenerateDailyReservationSheet</a></li>
-                    <li class="active"><a href="ReviewMemberApplication.aspx">ReviewMemberApplication</a></li>
-                    <li class="active"><a href="/RecordMemberApplication/Index">RecordMemberApplication</a></li>
-                    <li class="active"><a href="ViewAccount.aspx">ViewAccount</a></li>
-                    <li class="active"><a href="/CancelTeeTimeReservation/Index">CancelTeeTimeReservation</a></li>
-                    <li class="active"><a href="/CancelStandingTeeTimeReservation/Index">CancelStandingTeeTimeReservation</a></li>
-                    <li class="active"><a href="/RecordPlayerScore/Index">RecordPlayer Score</a></li>
+                <nav id="nav">
+                    <ul>
+                        <li class="active"><a href="/BookTeeTimeReservation/Index">BookTeeTimeReservation</a></li>
+                        <li class="active"><a href="/BookStandingTeeTimeReservation/Index">BookStandingTeeTimeReservation</a></li>
+                        <li class="active"><a href="#">GenerateDailyReservationSheet</a></li>
+                        <li class="active"><a href="/ReviewMember/Index">ReviewMemberApplication</a></li>
+                        <li class="active"><a href="/RecordMemberApplication/Index">RecordMemberApplication</a></li>
+                        <li class="active"><a href="#">ViewAccount</a></li>
+                        <li class="active"><a href="/CancelTeeTimeReservation/Index">CancelTeeTimeReservation</a></li>
+                        <li class="active"><a href="/CancelStandingTeeTimeReservation/Index">CancelStandingTeeTimeReservation</a></li>
+                        <li class="active"><a href="/RecordPlayerScore/Index">RecordPlayer Score</a></li>
 
-                </ul>
-            </nav>}
+                    </ul>
+                </nav>}
 
         </div>
-    </div>      
-                <div class="container body-content">
-                    @RenderBody()                                   
-                </div>
-                @Scripts.Render("~/bundles/jquery")
-                @Scripts.Render("~/bundles/bootstrap")
-<script src="~/Scripts/Custom/Common.js"></script>
-                @RenderSection("scripts", required: false)
-    </body>
-   
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/Custom/Common.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+
 </html>

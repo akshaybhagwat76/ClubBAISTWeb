@@ -12,6 +12,15 @@ namespace CLUBBaistWeb.Controllers
         // GET: RecordMemberApplication
         public ActionResult Index()
         {
+            int MemberNumber = 0;
+            try
+            {
+                MemberNumber = int.Parse(Session["MemberNumber"].ToString());
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "LogIn");
+            }
             return View();
         }
         [HttpPost]

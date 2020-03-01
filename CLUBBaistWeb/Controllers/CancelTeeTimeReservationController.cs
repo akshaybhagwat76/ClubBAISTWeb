@@ -12,6 +12,15 @@ namespace CLUBBaistWeb.Controllers
         // GET: CancelTeeTimeReservation
         public ActionResult Index()
         {
+            int MemberNumber = 0;
+            try
+            {
+                MemberNumber = int.Parse(Session["MemberNumber"].ToString());
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "LogIn");
+            }
             var data = new Reservations().GetMemberReservations(Convert.ToInt32(Session["MemberNumber"].ToString()));
             List<SelectListItem> ddlitemlist = data.Select(c => new SelectListItem { Text = c.Key, Value = c.Value.ToString() }).ToList();
 

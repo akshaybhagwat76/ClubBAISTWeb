@@ -11,7 +11,8 @@
 </div>
 <form>
     <br />
-    <input type="button" name="ctl00$ContentPlaceHolder1$SignOut" value="Sign Out" id="ContentPlaceHolder1_SignOut" />
+    <input type="button" name="ctl00$ContentPlaceHolder1$SignOut" onclick="location.href='@Url.Action("Logout","LogIn")'" value="Sign Out" id="ContentPlaceHolder1_SignOut" />
+
 
     <span id="ContentPlaceHolder1_Message" style="color:Red;"></span>
     <br />

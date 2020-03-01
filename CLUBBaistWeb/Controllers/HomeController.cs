@@ -10,6 +10,15 @@ namespace CLUBBaistWeb.Controllers
     {
         public ActionResult Index()
         {
+            int MemberNumber = 0;
+            try
+            {
+                MemberNumber = int.Parse(Session["MemberNumber"].ToString());
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "LogIn");
+            }
             return View();
         }
 

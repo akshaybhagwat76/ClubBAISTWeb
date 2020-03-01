@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="page">
+    <div class="container">
+        <div class="row">
+            <div class="6u skel-cell-important">
+                <section id="content">
+                    <header>
+                        <h2>Review  Member  Application</h2>
+                    </header>
+                    <br />
+                    <br />
+                    <input type="button" name="ctl00$ContentPlaceHolder1$SignOut" onclick="location.href='@Url.Action("Logout","LogIn")'" value="Sign Out" id="ContentPlaceHolder1_SignOut" />
+                    <br />
+                    <br />
+                    <span id="ContentPlaceHolder1_ApplicationIDLable">ApplicationID</span>
+                    <input name="ctl00$ContentPlaceHolder1$ApplicationID" type="text" id="ContentPlaceHolder1_ApplicationID" />
+                    <br />
+                    <br />
+
+                    <input type="button" name="ctl00$ContentPlaceHolder1$Accept" onclick="findApplication(this)" value="Accept" id="ContentPlaceHolder1_Accept" />
+                    <input type="button" name="ctl00$ContentPlaceHolder1$Deny" onclick="findApplication(this)" value="Deny" id="ContentPlaceHolder1_Deny" />
+                    <input type="button" name="ctl00$ContentPlaceHolder1$Waitlist" onclick="findApplication(this)" value="Waitlist" id="ContentPlaceHolder1_Waitlist" />
+                    <input type="button" name="ctl00$ContentPlaceHolder1$OnHold" onclick="findApplication(this)" value="Put On Hold" id="ContentPlaceHolder1_OnHold" />
+                    <br />
+                    <span id="ContentPlaceHolder1_Message"></span>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="applications">
+                        <table id="ContentPlaceHolder1_ApplicationsTable" cellspacing="4" cellpadding="3" rules="all" style="background-color:White;border-color:Black;border-width:1px;border-style:Solid;">
+                            <thead>
+                                <tr style="border-color:Black;border-width:1px;border-style:Solid;">
+                                    <th>ApplicationID</th>
+                                    <th>Last Name</th>
+                                    <th>First Name</th>
+                                    <th>Address</th>
+                                    <th>Postal Code</th>
+                                    <th>Phone</th>
+                                    <th>Alternate Phone</th>
+                                    <th>Email</th>
+                                    <th>Birth Date</th>
+                                    <th>Occupation</th>
+                                    <th>Company Name</th>
+                                    <th>Company Address</th>
+                                    <th>Company PostalCode</th>
+                                    <th>Company Phone</th>
+                                    <th>Submit Date</th>
+                                    <th>Sex</th>
+                                    <th>Wants Share</th>
+                                    <th>Waitlisted</th>
+                                    <th>On Hold</th>
+                                    <th>Shareholder Name</th>
+                                    <th>Shareholder Date</th>
+                                    <th>Shareholder Name</th>
+                                    <th>Shareholder Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.lstData)
+                                {
+                                    <tr>
+                                        <td>@item.ApplicationID</td>
+                                        <td>@item.LastName</td>
+                                        <td>@item.FirstName</td>
+                                        <td>@item.Address</td>
+                                        <td>@item.PostalCode</td>
+                                        <td>@item.Phone</td>
+                                        <td>@item.AltPhone</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.BirthDate</td>
+                                        <td>@item.Occupation</td>
+                                        <td>@item.CompanyName</td>
+                                        <td>@item.CompanyAddress</td>
+                                        <td>@item.CompanyPostalCode</td>
+                                        <td>@item.CompanyPhone</td>
+                                        <td>@item.SubmitDate</td>
+                                        <td>@item.Sex</td>
+                                        <td>@item.WantsShare</td>
+                                        <td>@item.Waitlisted</td>
+                                        <td>@item.Onhold</td>
+                                        <td>@item.ShareholderName1</td>
+                                        <td>@item.ShareholderDate1</td>
+                                        <td>@item.ShareholderName2</td>
+                                        <td>@item.ShareholderDate2</td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script src="~/Scripts/Custom/ReviewMemberApplication.js"></script>

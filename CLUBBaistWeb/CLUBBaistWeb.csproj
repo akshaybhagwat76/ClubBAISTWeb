@@ -134,6 +134,7 @@
     <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\RecordMemberApplicationController.cs" />
     <Compile Include="Controllers\RecordPlayerScoreController.cs" />
+    <Compile Include="Controllers\ReviewMemberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +172,7 @@
     <Content Include="Scripts\Custom\Login.js" />
     <Content Include="Scripts\Custom\RecordMemberApplication.js" />
     <Content Include="Scripts\Custom\RecordPlayerScore.js" />
+    <Content Include="Scripts\Custom\ReviewMemberApplication.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -201,6 +203,7 @@
     <Content Include="Views\RecordPlayerScore\Index.cshtml" />
     <Content Include="Views\BookStandingTeeTimeReservation\Index.cshtml" />
     <Content Include="Views\CancelTeeTimeReservation\Index.cshtml" />
+    <Content Include="Views\ReviewMember\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

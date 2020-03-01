@@ -92,3 +92,31 @@ public class Application
     
        
     
+
+public class ApplicationVM
+{
+    public int ApplicationID { get; set; }
+    public string LastName { get; set; }
+    public string FirstName { get; set; }
+    public string Address { get; set; }
+    public string PostalCode { get; set; }
+    public string Phone { get; set; }
+    public string AltPhone { get; set; }
+    public string Email { get; set; }
+    public string BirthDate { get; set; }
+    public string Occupation { get; set; }
+    public string CompanyName { get; set; }
+    public string Password { get; set; }
+    public string CompanyAddress { get; set; }
+    public string CompanyPostalCode { get; set; }
+    public string CompanyPhone { get; set; }
+    public string SubmitDate { get; set; }
+    public string Sex { get; set; }
+    public string WantsShare { get; set; }
+    public string Waitlisted { get; set; }
+    public string Onhold { get; set; }
+    public string ShareholderName1 { get; set; }
+    public string ShareholderName2 { get; set; }
+    public string ShareholderDate1 { get; set; }
+    public string ShareholderDate2 { get; set; }
+}
