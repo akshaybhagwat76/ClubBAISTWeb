@@ -276,7 +276,7 @@ public class Reservations
         {
             AddCommand.ExecuteNonQuery();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
             Success = false;
         }
@@ -455,10 +455,11 @@ public class Reservations
             command.ExecuteNonQuery();
             MadhuriKathiriaClubBAIST.Close();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
             MadhuriKathiriaClubBAIST.Close();
             success = false;
+
         }
 
         return success;

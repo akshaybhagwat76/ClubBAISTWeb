@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookStandingTeeTimeReservationController.cs" />
     <Compile Include="Controllers\BookTeeTimeReservationController.cs" />
     <Compile Include="Controllers\CancelStandingTeeTimeReservationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -137,6 +138,7 @@
     </Compile>
     <Compile Include="Helper\Application.cs" />
     <Compile Include="Helper\Applications..cs" />
+    <Compile Include="Helper\BookStandingTeeTimeReservation.cs" />
     <Compile Include="Helper\ClubBAISTRequestDirector.cs" />
     <Compile Include="Helper\Members.cs" />
     <Compile Include="Helper\Reservations.cs" />
@@ -161,6 +163,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Custom\BookStandingTeeTimeReservation.js" />
     <Content Include="Scripts\Custom\BookTeeTimeReservation.js" />
     <Content Include="Scripts\Custom\Common.js" />
     <Content Include="Scripts\Custom\Login.js" />
@@ -194,6 +197,7 @@
     <Content Include="Views\RecordMemberApplication\Index.cshtml" />
     <Content Include="Views\CancelStandingTeeTimeReservation\Index.cshtml" />
     <Content Include="Views\RecordPlayerScore\Index.cshtml" />
+    <Content Include="Views\BookStandingTeeTimeReservation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

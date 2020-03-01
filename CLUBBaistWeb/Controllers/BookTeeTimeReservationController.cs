@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CLUBBaistWeb.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,22 +14,51 @@ namespace CLUBBaistWeb.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public JsonResult ReserverTime(string ReservationList)
-        { 
-            string Message = string.Empty;
+
+        [HttpPost]
+        public JsonResult SaveDataBookTeeTimeReservation(BookTeeTimeReservation objBoookstanding)
+        {
+            bool isStatus = false;
+            string message = string.Empty;
+
+            int hours = objBoookstanding.Hour;
+            int minutes = objBoookstanding.Minute;
+
+            if (objBoookstanding.AMorPM == "PM" && hours != 12)
+                hours += 12;
+
+            string datetime = objBoookstanding.Date;
+            datetime += " " + hours.ToString() + ":" + minutes.ToString();
+            TeeTime NewTeeTime = new TeeTime();
+            DateTime DateT = DateTime.Parse(datetime);
             try
             {
-                string SelectedItem = ReservationList;
-                DateTime reservation = DateTime.Parse(SelectedItem);
-                Reservations CBRD = new Reservations();
-                Message= CBRD.CancelReservation(reservation, reservation, int.Parse(Session["MemberNumber"].ToString())).ToString();
-                return Json(true, Message, JsonRequestBehavior.AllowGet);
+                NewTeeTime = new TeeTime(DateT, DateT, Session["MemberName"].ToString(), objBoookstanding.MemberName2, objBoookstanding.MemberName3, objBoookstanding.MemberName4, Convert.ToInt32(Session["MemberNumber"]), objBoookstanding.NumberOfPlayers, objBoookstanding.PhoneNumber, Convert.ToInt32(objBoookstanding.NumberOfCarts), "N/A");
+
             }
-            catch (Exception ex) 
+            catch (Exception)
             {
-                return Json(false, ex.Message.ToString(), JsonRequestBehavior.AllowGet);
+                message = "Information was input incorrectly. Double check your fields";
+
             }
+
+
+            ClubBAISTRequestDirector CBRD = new ClubBAISTRequestDirector();
+
+
+            if (CBRD.ReserveTeeTime(NewTeeTime, Session["MembershipLevel"].ToString()))
+            {
+                isStatus = true;
+                message = "Reservation was successfuly made.";
+            }
+            else
+            {
+                message = "Reservation could not be made.";
+            }
+
+
+            return Json(new { Status = isStatus, message = message }, JsonRequestBehavior.AllowGet);
+
         }
     }
 }

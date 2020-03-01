@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<div id="page">
+    <div class="container">
+        <div class="row">
+            <div class="6u skel-cell-important">
+                <section id="content">
+                    <header>
+                        <h2>BookStandingTeeTimeReservation</h2>
+                    </header>
+                </section>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<br />
+<br />
+<form id="frmBookStandingTeeTimeReservation" name="BookStandingTeeTimeReservation">
+    <table id="StandingReservationTable" style="width:989px;">
+        <tr></tr>
+        <tr>
+            <td>
+                MemberName:
+            </td>
+            <td><input name="MemberName1" type="text" id="MemberName1" /></td>
+            <td>
+                MemberNumber:
+            </td>
+            <td><input name="MemberNumber1" type="text" id="MemberNumber1" /></td>
+        </tr>
+        <tr>
+            <td>
+                MemberName:
+            </td>
+            <td><input name="MemberName2" type="text" id="MemberName2" /></td>
+            <td>
+                MemberNumber:
+            </td>
+            <td><input name="MemberNumber2" type="text" id="MemberNumber2" /></td>
+        </tr>
+        <tr>
+            <td>
+                MemberName:
+            </td>
+            <td><input name="MemberName3" type="text" id="MemberName3" /></td>
+            <td>
+                MemberNumber:
+            </td>
+            <td><input name="MemberNumber3" type="text" id="MemberNumber3" /></td>
+        </tr>
+        <tr>
+            <td>
+                Requested Day of Week:
+            </td>
+            <td><input name="DayOfWeek" type="text" id="DayOfWeek" /></td>
+            <td>
+                Requested Tee Time:
+            </td>
+            <td>
+                Hour: <select name="Hour" id="Hour">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+
+                </select>
+                Minute:<select name="Minute" id="Minute">
+                    <option value="00">00</option>
+                    <option value="07">07</option>
+                    <option value="15">15</option>
+                    <option value="22">22</option>
+                    <option value="30">30</option>
+                    <option value="37">37</option>
+
+                </select>
+                AMorPM <select name="MorPM" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$AMorPM\&#39;,\&#39;\&#39;)&#39;, 0)" id="AMorPM">
+                    <option selected="selected" value="AM">AM</option>
+                    <option value="PM">PM</option>
+
+                </select><br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Requested Start Date:
+            </td>
+            <td>
+                <input name="StartDate" type="date" id="StartDate" /><br />
+            </td>
+            <td>
+                Requested End Date:
+            </td>
+            <td><input name="EndDate" type="date" id="EndDate" /></td>
+        </tr>
+    </table>
+
+    <br />
+    <br />
+
+    <input type="submit" name="BookStandingReservation" value="Book Standing Reservation" id="BookStandingReservation" />
+    <br />
+    <span id="Message"></span>
+    <br />
+</form>
+<script src="~/Scripts/Custom/BookStandingTeeTimeReservation.js"></script>
