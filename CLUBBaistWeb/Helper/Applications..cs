@@ -6,9 +6,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-
 /// <summary>
-/// Summary description for Applications
+/// Author : Akshay Bhagwat
+/// SKype Id : akshaybhagwat76@hotmail.com
+/// Gmail : akshaybhagwat76@gmail.com
+/// Freelancer : https://www.freelancer.com/u/akshaybhagwat76
+/// COntact : +91-7383328380
 /// </summary>
 public class Applications
 {

@@ -17,7 +17,6 @@ $("#btnBookTeeTime").click(function () {
     });
     if (!retval) {
         $.post('/BookTeeTimeReservation/SaveDataBookTeeTimeReservation', { objBoookstanding: _$RecordMemeberApplicationForm }, function (response) {
-
             if (!response.status) {
                 $("#Message").addClass("error").text(response.message).show();
             }
@@ -41,20 +40,17 @@ var $radios = $('input[name=NumberOfPlayers]').change(function () {
     }
     if (value == "3") {
         $("#MemberName3").prop('disabled', false);
-        $("#MemberName2").val('');
+        $("#MemberName2").prop('disabled', false);
         $("#MemberName4").val('');
 
-        $("#MemberName2").prop('disabled', true);
         $("#MemberName4").prop('disabled', true);
 
     }
     if (value == "4") {
-        $("#MemberName4").prop('disabled', false);
-        $("#MemberName2").val('');
-        $("#MemberName3").val('');
 
-        $("#MemberName2").prop('disabled', true);
-        $("#MemberName3").prop('disabled', true);
+        $("#MemberName3").prop('disabled', false);
+        $("#MemberName2").prop('disabled', false);
+        $("#MemberName4").prop('disabled', false);
     }
     if (value == "1") {
         $("#MemberName2").val('');

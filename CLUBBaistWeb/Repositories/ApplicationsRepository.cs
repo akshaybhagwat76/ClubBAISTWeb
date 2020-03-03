@@ -6,6 +6,13 @@ using System.Data.SqlClient;
 
 namespace CLUBBaistWeb.Repositories
 {
+    /// <summary>
+    /// Author : Akshay Bhagwat
+    /// SKype Id : akshaybhagwat76@hotmail.com
+    /// Gmail : akshaybhagwat76@gmail.com
+    /// Freelancer : https://www.freelancer.com/u/akshaybhagwat76
+    /// COntact : +91-7383328380
+    /// </summary>
     public class ApplicationsRepository
     {
         public bool AddApplication(Application NewApplication)

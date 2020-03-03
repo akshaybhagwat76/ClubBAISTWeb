@@ -10,6 +10,13 @@ using System.Web.Script.Serialization;
 
 namespace CLUBBaistWeb.Controllers
 {
+    /// <summary>
+    /// Author : Akshay Bhagwat
+    /// SKype Id : akshaybhagwat76@hotmail.com
+    /// Gmail : akshaybhagwat76@gmail.com
+    /// Freelancer : https://www.freelancer.com/u/akshaybhagwat76
+    /// COntact : +91-7383328380
+    /// </summary>
     public class RecordPlayerScoreController : Controller
     {
         List<string> boxes;
@@ -122,7 +129,9 @@ namespace CLUBBaistWeb.Controllers
                     NewScore.scores.Add(int.Parse(boxes[i].Last().ToString()));
                 }
                 if (NewScore.scores.Count == 18)
-                    NewScore.HandicapDifferential = Math.Round(((NewScore.Total - float.Parse(response.rating)) * 113) / float.Parse(response.slope), 1);
+                    //NewScore.HandicapDifferential = Math.Round(((NewScore.Total - float.Parse(response.rating)) * 113) / float.Parse(response.slope), 1);
+                    NewScore.HandicapDifferential = Math.Round(((NewScore.Total - (!string.IsNullOrEmpty(response.rating) ? float.Parse(response.rating) : 0)) * 113) / (!string.IsNullOrEmpty(response.slope) ? float.Parse(response.slope) : 0), 1);
+
 
 
                 ClubBAISTRequestDirector CBRD = new ClubBAISTRequestDirector();

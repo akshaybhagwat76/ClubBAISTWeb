@@ -7,9 +7,12 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.UI.WebControls;
 
-
 /// <summary>
-/// Summary description for Reservations
+/// Author : Akshay Bhagwat
+/// SKype Id : akshaybhagwat76@hotmail.com
+/// Gmail : akshaybhagwat76@gmail.com
+/// Freelancer : https://www.freelancer.com/u/akshaybhagwat76
+/// COntact : +91-7383328380
 /// </summary>
 public class Reservations
 {

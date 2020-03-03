@@ -7,6 +7,13 @@ using System.Data.SqlClient;
 
 namespace CLUBBaistWeb.Repositories
 {
+    /// <summary>
+    /// Author : Akshay Bhagwat
+    /// SKype Id : akshaybhagwat76@hotmail.com
+    /// Gmail : akshaybhagwat76@gmail.com
+    /// Freelancer : https://www.freelancer.com/u/akshaybhagwat76
+    /// COntact : +91-7383328380
+    /// </summary>
     public class ReservationRepository
     {
         public bool CancelStandingReservation(int MemberNumber)
@@ -189,42 +196,7 @@ namespace CLUBBaistWeb.Repositories
             return TeeTimes;
         }
 
-        //public void GetMemberReservations(int membernumber, ListBox Reservations)
-        //{
-        //    SqlConnection MadhuriKathiriaClubBAIST = new SqlConnection();
-        //    MadhuriKathiriaClubBAIST.ConnectionString = ConfigurationManager.ConnectionStrings["MadhuriKathiriaClubBAIST"].ConnectionString;
-        //    MadhuriKathiriaClubBAIST.Open();
-
-        //    SqlCommand command = new SqlCommand();
-        //    command.CommandText = "GetMemberReservations";
-        //    command.CommandType = CommandType.StoredProcedure;
-        //    command.Connection = MadhuriKathiriaClubBAIST;
-
-        //    SqlParameter parameter = new SqlParameter();
-        //    parameter.SqlDbType = SqlDbType.Int;
-        //    parameter.Value = membernumber;
-        //    parameter.ParameterName = "@MemberNumber";
-        //    command.Parameters.Add(parameter);
-
-        //    SqlDataReader reader = command.ExecuteReader();
-        //    while (reader.Read())
-        //    {
-        //        string ReservedText = reader[0].ToString();
-        //        string ReservedValue = reader[0].ToString() + reader[1].ToString();
-        //        ReservedValue = ReservedValue.Remove(9);
-        //        ReservedValue = ReservedValue + reader[1].ToString();
-        //        ReservedText = ReservedText.Remove(9);
-        //        ReservedText = ReservedText + " ";
-        //        ReservedText = ReservedText + reader[1].ToString();
-
-        //        ListItem item = new ListItem(ReservedText.Insert(11, " at "), ReservedValue);
-        //        Reservations.Items.Add(item);
-        //    }
-        //    reader.Close();
-        //    MadhuriKathiriaClubBAIST.Close();
-        //}
-
-
+        
         public bool AddReservation(TeeTime NewTeeTime, string MemberShipLevel)
         {
             bool Success = true;
